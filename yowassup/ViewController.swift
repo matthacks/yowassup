@@ -12,6 +12,8 @@ import Contacts
 
 class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
+    let greetingAr = ["YO WASSUP!", "Hey! :]", "How's it going?", "Hi", "hi", "Long time no see, what's new??", "sup", "hello", "Hey!", "yo!", "hola"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,21 +43,19 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 //todo should probably confirm that numbers are all from mobile category
         
         
-        let randomIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
-        print(phoneNumbers[randomIndex])
-        
+        let randomContactIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
+        let randomMessageIndex = Int(arc4random_uniform(UInt32(greetingAr.count)))
         
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
         
-        
-        // Configure the fields of the interface.
-        composeVC.recipients = [phoneNumbers[randomIndex]]
-        composeVC.body = "YO WASSUP!"
+        // Populate recipient and body fields
+        composeVC.recipients = [phoneNumbers[randomContactIndex]]
+        composeVC.body = greetingAr[randomMessageIndex];
+
         
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
-        
         
     }
     
