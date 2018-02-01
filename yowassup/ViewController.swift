@@ -12,13 +12,21 @@ import Contacts
 
 class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
-    let greetingAr = ["YO WASSUP!", "Hey! :]", "How's it going?", "Hi", "hi", "Long time no see, what's new??", "sup", "hello", "Hey!", "yo!", "hola"]
+    var greetingModel = GreetingModel()
+    var greetingAr = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //refresh the greeting array in case greetings were added/remove
+        let tbvc = self.tabBarController as! MyTabBarController
+        greetingModel = tbvc.greetingModel
+        greetingAr = greetingModel.greetingsArray
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,11 +45,8 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
             }
         }
         
-        
-        
 //todo check that multiple numbers actually exist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //todo should probably confirm that numbers are all from mobile category
-        
         
         let randomContactIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
         let randomMessageIndex = Int(arc4random_uniform(UInt32(greetingAr.count)))
@@ -52,7 +57,6 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         // Populate recipient and body fields
         composeVC.recipients = [phoneNumbers[randomContactIndex]]
         composeVC.body = greetingAr[randomMessageIndex];
-
         
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)

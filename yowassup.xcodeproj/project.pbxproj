@@ -14,6 +14,10 @@
 		D248542C201D792C00DFDB70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248542A201D792C00DFDB70 /* LaunchScreen.storyboard */; };
 		D2485437201D792C00DFDB70 /* yowassupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2485436201D792C00DFDB70 /* yowassupTests.swift */; };
 		D2485442201D792C00DFDB70 /* yowassupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2485441201D792C00DFDB70 /* yowassupUITests.swift */; };
+		D2C1373C2022A7B800FF84A4 /* greetingPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C1373B2022A7B800FF84A4 /* greetingPList.plist */; };
+		D2C1377A2022CF3500FF84A4 /* GreetingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C137792022CF3500FF84A4 /* GreetingListViewController.swift */; };
+		D2C1377C2022F30200FF84A4 /* GreetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1377B2022F30200FF84A4 /* GreetingModel.swift */; };
+		D2C1377E2022F3D900FF84A4 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1377D2022F3D900FF84A4 /* MyTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		D248543D201D792C00DFDB70 /* yowassupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yowassupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2485441201D792C00DFDB70 /* yowassupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yowassupUITests.swift; sourceTree = "<group>"; };
 		D2485443201D792C00DFDB70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2C1373B2022A7B800FF84A4 /* greetingPList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = greetingPList.plist; sourceTree = "<group>"; };
+		D2C137792022CF3500FF84A4 /* GreetingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingListViewController.swift; sourceTree = "<group>"; };
+		D2C1377B2022F30200FF84A4 /* GreetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingModel.swift; sourceTree = "<group>"; };
+		D2C1377D2022F3D900FF84A4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,10 @@
 				D2485428201D792C00DFDB70 /* Assets.xcassets */,
 				D248542A201D792C00DFDB70 /* LaunchScreen.storyboard */,
 				D248542D201D792C00DFDB70 /* Info.plist */,
+				D2C1373B2022A7B800FF84A4 /* greetingPList.plist */,
+				D2C137792022CF3500FF84A4 /* GreetingListViewController.swift */,
+				D2C1377B2022F30200FF84A4 /* GreetingModel.swift */,
+				D2C1377D2022F3D900FF84A4 /* MyTabBarController.swift */,
 			);
 			path = yowassup;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 			files = (
 				D248542C201D792C00DFDB70 /* LaunchScreen.storyboard in Resources */,
 				D2485429201D792C00DFDB70 /* Assets.xcassets in Resources */,
+				D2C1373C2022A7B800FF84A4 /* greetingPList.plist in Resources */,
 				D2485427201D792C00DFDB70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C1377C2022F30200FF84A4 /* GreetingModel.swift in Sources */,
 				D2485424201D792C00DFDB70 /* ViewController.swift in Sources */,
 				D2485422201D792C00DFDB70 /* AppDelegate.swift in Sources */,
+				D2C1377E2022F3D900FF84A4 /* MyTabBarController.swift in Sources */,
+				D2C1377A2022CF3500FF84A4 /* GreetingListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
