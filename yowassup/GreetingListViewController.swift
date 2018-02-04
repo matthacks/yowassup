@@ -8,6 +8,10 @@
 
 import UIKit
 
+class GreetingViewListCell: UITableViewCell {
+    @IBOutlet weak var label: UILabel!
+}
+
 class GreetingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView?
@@ -39,9 +43,11 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = self.tableView!.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+        //let cell:UITableViewCell = self.tableView!.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+        let cell = self.tableView?.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! GreetingViewListCell
+        cell.label?.text = self.greetingAr[indexPath.row]
         
-        cell.textLabel?.text = self.greetingAr[indexPath.row]
+        //cell.textLabel?.text = self.greetingAr[indexPath.row]
         
         return cell
     }
@@ -49,5 +55,17 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             NSLog("You selected cell #\(indexPath.row)!")
         }
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            self.greetingAr.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print(self.greetingAr)
+        }
+        
+        return [delete]
+    }
     
 }
