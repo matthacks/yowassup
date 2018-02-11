@@ -31,8 +31,8 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
             let newGreeting = alertController.textFields?[0].text
            
             self.greetingAr.append(newGreeting!)
+            (self.tabBarController as? MyTabBarController)?.saveGreetingArray(updatedAr: self.greetingAr)
             self.tableView?.reloadData()
-
         }
         
         //if cancelled do nothing
@@ -94,8 +94,8 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
             self.greetingAr.remove(at: indexPath.row)
+            (self.tabBarController as? MyTabBarController)?.saveGreetingArray(updatedAr: self.greetingAr)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            print(self.greetingAr)
         }
         
         return [delete]

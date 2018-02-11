@@ -16,4 +16,8 @@ class MyTabBarController: UITabBarController {
         
         greetingModel.loadGreetingFile()
     }
+    
+    func saveGreetingArray(updatedAr:[String]){
+        greetingModel.saveGreetingFile(updatedAr: updatedAr)
+    }
 }

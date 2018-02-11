@@ -49,14 +49,21 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 //todo should probably confirm that numbers are all from mobile category
         
         let randomContactIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
-        let randomMessageIndex = Int(arc4random_uniform(UInt32(greetingAr.count)))
         
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
         
         // Populate recipient and body fields
         composeVC.recipients = [phoneNumbers[randomContactIndex]]
-        composeVC.body = greetingAr[randomMessageIndex];
+        
+        if greetingAr.count > 0 {
+            let randomMessageIndex = Int(arc4random_uniform(UInt32(greetingAr.count)))
+            composeVC.body = greetingAr[randomMessageIndex];
+        }
+        else {
+            composeVC.body = ""
+        }
+       
         
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
