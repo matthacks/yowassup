@@ -40,31 +40,30 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         let contactStore = CNContactStore()
         let fetchRequest = CNContactFetchRequest(keysToFetch: [CNContactPhoneNumbersKey as CNKeyDescriptor])
         try! contactStore.enumerateContacts(with: fetchRequest) { contact, stop in
-            if contact.phoneNumbers.count > 0 {
-                phoneNumbers.append((contact.phoneNumbers[0].value ).value(forKey: "digits") as! String)
+            for num in contact.phoneNumbers {
+                if num.label == CNLabelPhoneNumberMobile{
+                    phoneNumbers.append((num.value).value(forKey: "digits") as! String)
+                }
             }
         }
-        
-//todo check that multiple numbers actually exist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//todo should probably confirm that numbers are all from mobile category
-        
-        let randomContactIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
         
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
         
-        // Populate recipient and body fields
-        composeVC.recipients = [phoneNumbers[randomContactIndex]]
+        phoneNumbers.removeAll()
         
+        // Populate recipient fields if at least one mobile # exists
+        if phoneNumbers.count > 0 {
+            let randomContactIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
+            composeVC.recipients = [phoneNumbers[randomContactIndex]]
+        }
+        
+        // Populate body field if at least one greeting exists
         if greetingAr.count > 0 {
             let randomMessageIndex = Int(arc4random_uniform(UInt32(greetingAr.count)))
             composeVC.body = greetingAr[randomMessageIndex];
         }
-        else {
-            composeVC.body = ""
-        }
        
-        
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
         
@@ -76,6 +75,4 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         
         // Dismiss the message compose view controller.
         controller.dismiss(animated: true, completion: nil)}
-
 }
-
