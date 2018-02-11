@@ -34,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="-1793" y="342"/>
         </scene>
-        <!--Item-->
+        <!--Greeting List-->
         <scene sceneID="7T2-8q-Iaq">
             <objects>
                 <viewController id="d6j-VC-hxf" customClass="GreetingListViewController" customModule="yowassup" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,14 +74,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="MJi-ER-29R" userLabel="TableCell" customClass="GreetingViewListCell" customModule="yowassup" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MJi-ER-29R" id="zmH-lC-kOV" customClass="GreetingTableListViewCell" customModule="yowassup" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsq-Ak-nOV">
-                                                    <rect key="frame" x="18" y="11.333333333333336" width="42" height="21"/>
+                                                    <rect key="frame" x="18" y="11.666666666666664" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gsh-jq-6e8"/>
                     </stackView>
-                    <tabBarItem key="tabBarItem" title="Item" id="pIh-sL-tuo"/>
+                    <tabBarItem key="tabBarItem" title="Greeting List" image="list" id="pIh-sL-tuo"/>
                     <navigationItem key="navigationItem" id="usN-gP-c2A"/>
                     <connections>
                         <outlet property="tableView" destination="93P-e5-Dom" id="ScJ-QI-5pS"/>
@@ -132,8 +132,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" WASSUP!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVZ-Ot-11z">
+                                <rect key="frame" x="10" y="82" width="320" height="100"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="70"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R93-HW-ScW">
-                                <rect key="frame" x="0.0" y="501" width="414" height="46"/>
+                                <rect key="frame" x="0.0" y="445" width="414" height="46"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
                                 <state key="normal" title="Create Message"/>
@@ -146,30 +152,35 @@
                                     <action selector="toRandomContactPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rPY-gH-YRP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" WASSUP!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVZ-Ot-11z">
-                                <rect key="frame" x="10" y="82" width="320" height="100"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="70"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R93-HW-ScW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4ob-2q-C8T"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R93-HW-ScW" secondAttribute="bottom" constant="140" id="7cd-Y0-Tk8"/>
                             <constraint firstItem="GVZ-Ot-11z" firstAttribute="top" secondItem="5Qf-tr-Htc" secondAttribute="bottom" constant="-28" id="7yF-lu-jxL"/>
+                            <constraint firstItem="R93-HW-ScW" firstAttribute="top" secondItem="GVZ-Ot-11z" secondAttribute="bottom" constant="263" id="7zM-Sq-uBk">
+                                <variation key="heightClass=compact" constant="50"/>
+                            </constraint>
                             <constraint firstItem="5Qf-tr-Htc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="10" id="GTY-QP-TZd"/>
                             <constraint firstItem="R93-HW-ScW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I3A-gW-AcU"/>
                             <constraint firstItem="5Qf-tr-Htc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ke9-qc-w3d"/>
                             <constraint firstItem="GVZ-Ot-11z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mRg-Qy-0ze"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="7zM-Sq-uBk"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Message" id="nR0-dI-Sct"/>
+                    <tabBarItem key="tabBarItem" title="Message" image="sms" id="nR0-dI-Sct"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-878" y="8"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="30" height="30"/>
+        <image name="sms" width="30" height="30"/>
+    </resources>
 </document>
