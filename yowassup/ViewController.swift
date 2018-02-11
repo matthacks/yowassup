@@ -49,9 +49,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
-        
-        phoneNumbers.removeAll()
-        
+                
         // Populate recipient fields if at least one mobile # exists
         if phoneNumbers.count > 0 {
             let randomContactIndex = Int(arc4random_uniform(UInt32(phoneNumbers.count)))
