@@ -14,7 +14,42 @@ class GreetingViewListCell: UITableViewCell {
 
 class GreetingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var tableView: UITableView?
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func addGreetingToList(_ sender: Any) {
+        showInputDialog()
+    }
+    
+    func showInputDialog() {
+        
+        let alertController = UIAlertController(title: "Add greeting?", message: "Enter the new greeting", preferredStyle: .alert)
+        
+        //if confirmed
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
+            
+            //getting the input values from user
+            let newGreeting = alertController.textFields?[0].text
+           
+            self.greetingAr.append(newGreeting!)
+            self.tableView?.reloadData()
+
+        }
+        
+        //if cancelled do nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        //add the textfield
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter Greeting"
+        }
+        
+        //add the action
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        //display the dialog
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     var greetingModel = GreetingModel()
     var greetingAr = [""]
@@ -33,8 +68,7 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+                self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,7 +89,6 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             NSLog("You selected cell #\(indexPath.row)!")
         }
-    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
