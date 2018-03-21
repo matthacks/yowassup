@@ -2,16 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>YO WASSUP!</string>
-	<string>Hey! :]</string>
-	<string>How&apos;s it going?</string>
-	<string>Hi</string>
-	<string>hi</string>
-	<string>Long time no see, what&apos;s new??</string>
-	<string>sup</string>
 	<string>hello</string>
 	<string>Hey!</string>
-	<string>yo!</string>
+	<string>Hey! :]</string>
+	<string>Hi</string>
+	<string>hi</string>
 	<string>hola</string>
+	<string>How&apos;s it going?</string>
+	<string>Long time no see, what&apos;s new??</string>
+	<string>sup</string>
+	<string>yo!</string>
+	<string>YO WASSUP!</string>
 </array>
 </plist>

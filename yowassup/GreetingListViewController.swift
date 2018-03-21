@@ -12,12 +12,16 @@ class GreetingViewListCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
 }
 
-class GreetingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GreetingListViewController: UITableViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func addGreetingToList(_ sender: Any) {
+    @IBAction func addGreetingToList(_ sender: UIBarButtonItem) {
         showInputDialog()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     func showInputDialog() {
@@ -31,6 +35,7 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
             let newGreeting = alertController.textFields?[0].text
            
             self.greetingAr.append(newGreeting!)
+            self.greetingAr = self.greetingAr.sorted{$0.lowercased() < $1.lowercased()}
             (self.tabBarController as? MyTabBarController)?.saveGreetingArray(updatedAr: self.greetingAr)
             self.tableView?.reloadData()
         }
@@ -71,11 +76,11 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
                 self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.greetingAr.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //let cell:UITableViewCell = self.tableView!.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
         let cell = self.tableView?.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! GreetingViewListCell
@@ -86,11 +91,11 @@ class GreetingListViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             NSLog("You selected cell #\(indexPath.row)!")
         }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
             self.greetingAr.remove(at: indexPath.row)
